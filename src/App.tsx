@@ -64,7 +64,9 @@ export function App() {
             if (newValue === null) {
               return
             }
-
+            if (newValue === EMPTY_EMPLOYEE) {
+              return await loadAllTransactions()
+            }
             await loadTransactionsByEmployee(newValue.id)
           }}
         />
