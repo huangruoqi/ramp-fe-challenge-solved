@@ -10,7 +10,7 @@ export const TransactionPane: TransactionPaneComponent = ({ transaction }) => {
   const setTransactionApproval = useCallback(
     (newValue: boolean) => {
       fakeFetch<SuccessResponse>("setTransactionApproval", {
-        transactionId: transaction.id,
+        transactionId: transaction.id, value: newValue
       })
       setApproved(newValue)
     },

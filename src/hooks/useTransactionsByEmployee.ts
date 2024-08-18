@@ -14,6 +14,7 @@ export function useTransactionsByEmployee(): TransactionsByEmployeeResult {
       wrappedRequest(async () => {
         const data = await customFetch<Transaction[], RequestByEmployeeParams>(
           "transactionsByEmployee",
+          false,
           {
             employeeId,
           }

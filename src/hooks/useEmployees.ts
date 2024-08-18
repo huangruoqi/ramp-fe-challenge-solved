@@ -12,7 +12,7 @@ export function useEmployees(): EmployeeResult {
   const fetchAll = useCallback(
     () =>
       wrappedRequest(async () => {
-        const employeesData = await customFetch<Employee[]>("employees")
+        const employeesData = await customFetch<Employee[]>("employees", true)
         setEmployees(employeesData)
       }),
     [customFetch, wrappedRequest]

@@ -16,6 +16,7 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
       wrappedRequest(async () => {
         const response = await customFetch<PaginatedResponse<Transaction[]>, PaginatedRequestParams>(
           "paginatedTransactions",
+          paginatedTransactions !== null,
           {
             page: paginatedTransactions === null ? 0 : paginatedTransactions.nextPage,
           }

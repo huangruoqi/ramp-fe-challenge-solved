@@ -8,12 +8,13 @@ export function useCustomFetch() {
   const customFetch = useCallback(
     async <TData, TParams extends object = object>(
       endpoint: RegisteredEndpoints,
-      params?: TParams
+      useCache: boolean,
+      params?: TParams,
     ): Promise<TData> => {
       const cacheKey = JSON.stringify({ endpoint, params })
       const cacheResponse = cache?.current.get(cacheKey)
 
-      if (cacheResponse) {
+      if (useCache&&cacheResponse) {
         const data = JSON.parse(cacheResponse)
         return data as Promise<TData>
       }
