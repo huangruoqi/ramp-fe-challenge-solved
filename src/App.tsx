@@ -83,6 +83,7 @@ export function App() {
                   <TransactionPane key={transaction.id} transaction={transaction} />
                 ))}
               </div>
+              {paginatedTransactions?.nextPage &&
               <button
                 className="RampButton"
                 disabled={paginatedTransactionsUtils.loading}
@@ -92,6 +93,7 @@ export function App() {
               >
                 View More
               </button>
+              }
             </Fragment>
           )}
         </div>
